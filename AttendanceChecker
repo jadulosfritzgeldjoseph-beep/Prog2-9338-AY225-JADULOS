@@ -1,0 +1,81 @@
+import java.awt.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import javax.swing.*;
+
+public class AttendanceChecker extends JFrame {
+
+    JTextField nameField, courseField, timeInField;
+
+    public AttendanceChecker() {
+        setTitle("Attendance Sheet");
+        setSize(500, 300);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        Font titleFont = new Font("Segoe UI", Font.BOLD, 18);
+        Font labelFont = new Font("Segoe UI", Font.BOLD, 14);
+        Font fieldFont = new Font("Segoe UI", Font.PLAIN, 14);
+
+        JPanel mainPanel = new JPanel(new BorderLayout());
+        mainPanel.setBackground(new Color(245, 247, 250));
+
+        JLabel title = new JLabel("Student Attendance Sheet", JLabel.CENTER);
+        title.setFont(titleFont);
+        title.setBorder(BorderFactory.createEmptyBorder(15, 10, 10, 10));
+
+        JPanel formPanel = new JPanel(new GridLayout(4, 2, 12, 12));
+        formPanel.setBorder(BorderFactory.createEmptyBorder(20, 40, 20, 40));
+        formPanel.setBackground(Color.WHITE);
+
+        JLabel nameLabel = new JLabel("Student Name:");
+        JLabel courseLabel = new JLabel("Course / Year:");
+        JLabel timeLabel = new JLabel("Time In:");
+
+        nameLabel.setFont(labelFont);
+        courseLabel.setFont(labelFont);
+        timeLabel.setFont(labelFont);
+
+        nameField = new JTextField();
+        courseField = new JTextField();
+        timeInField = new JTextField();
+
+        nameField.setFont(fieldFont);
+        courseField.setFont(fieldFont);
+        timeInField.setFont(fieldFont);
+        timeInField.setEditable(false);
+
+        JButton markBtn = new JButton("Mark Attendance");
+        markBtn.setFont(labelFont);
+        markBtn.setBackground(new Color(52, 152, 219));
+        markBtn.setForeground(Color.WHITE);
+        markBtn.setFocusPainted(false);
+
+        markBtn.addActionListener(e -> setTimeIn());
+
+        formPanel.add(nameLabel);
+        formPanel.add(nameField);
+        formPanel.add(courseLabel);
+        formPanel.add(courseField);
+        formPanel.add(timeLabel);
+        formPanel.add(timeInField);
+        formPanel.add(new JLabel());
+        formPanel.add(markBtn);
+
+        mainPanel.add(title, BorderLayout.NORTH);
+        mainPanel.add(formPanel, BorderLayout.CENTER);
+
+        add(mainPanel);
+        setVisible(true);
+    }
+
+    private void setTimeIn() {
+        DateTimeFormatter formatter =
+                DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        timeInField.setText(LocalDateTime.now().format(formatter));
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(AttendanceChecker::new);
+    }
+}
