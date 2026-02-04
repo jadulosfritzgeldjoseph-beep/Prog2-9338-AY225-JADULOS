@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "RecordSystem",
+            "request": "launch",
+            "mainClass": "RecordSystem",
+            "projectName": "Prog2-9338-AY225-JADULOS_1abf841"
+        },
+        {
+            "type": "java",
+            "name": "RecordSystem",
+            "request": "launch",
+            "mainClass": "JAVA.RecordSystem",
+            "projectName": "Prog2-9338-AY225-JADULOS_1abf841"
+        },
+        {
+            "type": "java",
+            "name": "AttendanceTracker",
+            "request": "launch",
+            "mainClass": "JAVA.AttendanceTracker",
+            "projectName": "Prog2-9338-AY225-JADULOS_1abf841"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"

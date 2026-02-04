@@ -1,16 +1,45 @@
-<form id="userForm">
-  <input type="text" id="name" placeholder="Name" required>
-  <input type="email" id="email" placeholder="Email" required>
-  <button type="submit">Add Entry</button>
-</form>
+<style>
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7f6; padding: 40px; }
+  .container { max-width: 800px; margin: auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+  
+  form { display: flex; gap: 10px; margin-bottom: 20px; }
+  input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; }
+  button { padding: 10px 20px; cursor: pointer; border: none; border-radius: 6px; transition: 0.3s; }
+  
+  .btn-add { background: #4f46e5; color: white; }
+  .btn-add:hover { background: #4338ca; }
+  .btn-del { background: #ef4444; color: white; padding: 5px 10px; }
+  
+  table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+  th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
+  th { background: #f9fafb; color: #6b7280; font-weight: 600; }
 
-<table border="1" style="margin-top: 20px; width: 100%; text-align: left;">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody id="tableBody"></tbody>
-</table>
+  .log-section { margin-top: 30px; padding: 15px; background: #eef2ff; border-radius: 8px; border-left: 5px solid #4f46e5; }
+  .log-list { list-style: none; padding: 0; font-size: 0.9rem; color: #374151; }
+  .log-item { margin-bottom: 5px; display: flex; justify-content: space-between; }
+</style>
+
+<div class="container">
+  <h2>Data Management</h2>
+  <form id="userForm">
+    <input type="text" id="name" placeholder="Name" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <button type="submit" class="btn-add">Add Entry</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+
+  <div class="log-section">
+    <h4>Activity Record</h4>
+    <ul id="actionLog" class="log-list"></ul>
+  </div>
+</div>

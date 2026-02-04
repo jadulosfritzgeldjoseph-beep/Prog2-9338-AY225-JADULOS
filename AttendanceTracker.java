@@ -1,4 +1,4 @@
-    import java.awt.*;
+import java.awt.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import javax.swing.*;
@@ -75,4 +75,3 @@ public class AttendanceTracker {
         frame.add(mainArea, BorderLayout.CENTER);
         frame.setVisible(true);
     }
-}
